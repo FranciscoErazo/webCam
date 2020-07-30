@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Video</title>
+    </head>
+    <style>
+        video{display: none;}
+    </style>
+    <body>
+        <img id='miImg'>
+        <script src="http://localhost:80/socket.io/socket.io.js"></script>
+        <script>
+            var websocket = io.connect("http://localhost:80")
+            websocket.on('setFrame', proc)
+            function proc(img){
+                document.querySelector('miImg').src = img
+            }
+        </script>
+    </body>
+</html>
